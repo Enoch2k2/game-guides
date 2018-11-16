@@ -1,0 +1,27 @@
+<div class="container section">
+  <h2 class="indigo-text text-darken-4 center">My Games</h2>
+  <h4 class="center"><%= link_to "Add / Remove Games In Your List", edit_user_games_path %></h4>
+  <div class="row">
+    <% @games.each do |game| %>
+      <div class="col s6">
+        <div class="card black white-text">
+          <div class="card-image">
+            <img src="<%= image_url(game.image_url) %>" class="image-responsive">
+          </div>
+           <div class="card-content content-box">
+            <span class="card-title"><%= game.name %></span>
+            <p><%= game.description %></p>
+          </div>
+          <div class="card-action center">
+            <%= link_to "Classes", game_classes_path(game.slug) %>
+            <%= link_to "Questing", "#" %>
+            <%= link_to "Dungeons", "#" %>
+            <%= link_to "Crafting", "#" %>
+            <%= link_to "Locations", "#" %>
+            <%= link_to "Official Site", game.url, target: :_blank %>
+         </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>

@@ -1,0 +1,17 @@
+<div class="container section">
+  <h2 class="indigo-text text-darken-4 center">Add / Remove Games</h2>
+  <%= form_for current_user, url: update_user_games_path do |f| %>
+    <h4 class="indigo-text text-darke-4">Game List</h4>
+    <% Game.all.each do |game| %>
+      <p>
+        <label>
+          <input type="checkbox" name="user[game_ids][]" value="<%= game.id %>" <%= 'checked' if @games.include?(game) %>>
+          <span><%= game.name %></span>
+        </label>
+      </p>
+    <% end %>
+    <div class="input-field">
+      <input type="submit" value="Add / Remove Games" class="btn">
+    </div>
+  <% end %>
+</div>

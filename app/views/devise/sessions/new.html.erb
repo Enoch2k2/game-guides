@@ -1,0 +1,37 @@
+<div class="container section">
+  <h2>Log in</h2>
+
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <p class="<%= flash['alert'] ? 'red-text' : 'hide'%>" %><%= flash['alert'] if flash['alert'] %></p>
+    <div class="field input-field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+      <%= f.label :email %>
+      <p class="<%= devise_error_messages? && !resource.errors.messages[:email].empty? ? 'red-text' : 'hide' %>">
+        <%= !resource.errors.messages.empty? && !resource.errors.messages[:email].empty? ? "Email #{resource.errors.messages[:email][0]}" : "" %>
+      </p>
+    </div>
+
+    <div class="field input-field">
+      <%= f.password_field :password, autocomplete: "current-password" %>
+      <%= f.label :password %>
+      <p class="<%= devise_error_messages? && !resource.errors.messages[:password].empty? ? 'red-text' : 'hide' %>">
+        <%= !resource.errors.messages.empty? && !resource.errors.messages[:password].empty? ? "Password #{resource.errors.messages[:password][0]}" : "" %>
+      </p>
+    </div>
+
+    <% if devise_mapping.rememberable? -%>
+      <p class="field">
+        <%= f.label :remember_me do %>
+          <%= f.check_box :remember_me %>
+          <span>Remember Me</span>
+        <% end %>
+      </p>
+    <% end -%>
+
+    <div class="actions input-field">
+      <%= f.submit "Log in", class: "btn" %>
+    </div>
+  <% end %>
+
+  <%= render "devise/shared/links" %>
+</div>

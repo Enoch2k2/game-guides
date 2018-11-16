@@ -1,0 +1,13 @@
+<nav class="nav-wrapper indigo darken-4">
+  <div class="container">
+    <%= link_to "Game Guides", root_path, class: "brand-logo" %>
+    <ul class="right hide-on-med-and-down">
+      <li><%= link_to "Games", games_path %></li>
+      <% if user_signed_in? %>
+        <%= render partial: 'layouts/logged_in_links' %>
+      <% else %>
+        <%= render partial: 'layouts/logged_out_links' %>
+      <% end %>
+    </ul>
+  </div>
+</nav>

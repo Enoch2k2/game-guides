@@ -1,0 +1,116 @@
+<div class="container section">
+  <h2 class="indigo-text text-darken-4 center"><%= @game.name %> Classes</h2>
+  <hr/>
+  <div class="row">
+    <ul class="tabs">
+      <li class="tab col s12 m2 l2 offset-m2 offset-l1"><a href="#tanks" class="teal-text">Tanks</a></li>
+      <li class="tab col s12 m2 l2"><a href="#healers" class="teal-text">Healers</a></li>
+      <li class="tab col s12 m2 l2"><a href="#melee" class="teal-text">Melee</a></li>
+      <li class="tab col s12 m2 l2"><a href="#ranged" class="teal-text">Ranged</a></li>
+      <li class="tab col s12 m2 l2"><a href="#casters" class="teal-text">Casters</a></li>
+    </ul>
+  </div>
+  <div class="row section tab-contents" id="tanks">
+    <h4 class="indigo-text text-darken-4 center">Tanks</h4>
+    <% @game.klasses.tanks.each do |klass| %>
+      <div class="col s12 m6 l4">
+        <div class="card black white-text">
+          <div class="card-image">
+            <img src="<%= image_url(klass.image_url) %>" class="image-responsive">
+          </div>
+          <div class="card-content content-box">
+            <span class="card-title"><%= klass.name %> - <%= klass.role %></span>
+            <p><%= klass.description %></p>
+          </div>
+          <div class="card-action center">
+            <%= link_to "VISIT", "#" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row section" id="healers">
+    <h4 class="indigo-text text-darken-4 center">Healers</h4>
+    <% @game.klasses.healers.each do |klass| %>
+      <div class="col s12 m6 l4">
+        <div class="card black white-text">
+          <div class="card-image">
+            <img src="<%= image_url(klass.image_url) %>" class="image-responsive">
+          </div>
+          <div class="card-content content-box">
+            <span class="card-title"><%= klass.name %> - <%= klass.role %></span>
+            <p><%= klass.description %></p>
+          </div>
+          <div class="card-action center">
+            <%= link_to "VISIT", "#" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row section" id="melee">
+    <h4 class="indigo-text text-darken-4 center">Melee</h4>
+    <% @game.klasses.melee.each do |klass| %>
+      <div class="col s12 m6 l4">
+        <div class="card black white-text">
+          <div class="card-image">
+            <img src="<%= image_url(klass.image_url) %>" class="image-responsive">
+          </div>
+          <div class="card-content content-box">
+            <span class="card-title"><%= klass.name %> - <%= klass.role %></span>
+            <p><%= klass.description %></p>
+          </div>
+          <div class="card-action center">
+            <%= link_to "VISIT", "#" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row section" id="ranged">
+    <h4 class="indigo-text text-darken-4 center">Ranged</h4>
+    <% @game.klasses.ranged.each do |klass| %>
+      <div class="col s12 m6 l4">
+        <div class="card black white-text">
+          <div class="card-image">
+            <img src="<%= image_url(klass.image_url) %>" class="image-responsive">
+          </div>
+          <div class="card-content content-box">
+            <span class="card-title"><%= klass.name %> - <%= klass.role %></span>
+            <p><%= klass.description %></p>
+          </div>
+          <div class="card-action center">
+            <%= link_to "VISIT", "#" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+  <div class="row section" id="casters">
+    <h4 class="indigo-text text-darken-4 center">Casters</h4>
+    <% @game.klasses.casters.each do |klass| %>
+      <div class="col s12 m6 l4">
+        <div class="card black white-text">
+          <div class="card-image">
+            <img src="<%= image_url(klass.image_url) %>" class="image-responsive">
+          </div>
+          <div class="card-content content-box">
+            <span class="card-title"><%= klass.name %> - <%= klass.role %></span>
+            <p><%= klass.description %></p>
+          </div>
+          <div class="card-action center">
+            <%= link_to "VISIT", "#" %>
+          </div>
+        </div>
+      </div>
+    <% end %>
+  </div>
+</div>
+
+<script>
+  $(document).ready(function(){
+    $('.tabs').tabs({swipeable: true, onShow: resizeTab});
+    
+    $( window ).resize(function() { resizeTab(); });
+  });
+</script>
